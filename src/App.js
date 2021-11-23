@@ -560,7 +560,7 @@ function App() {
         </div>
       </main>
       <footer>
-        <section className="flex justify-between items-center">
+        <section className="flex md:flex-row flex-col justify-between items-center">
           <article className="w-full">
             <h4>Contact Us</h4>
             <form action="">
@@ -575,7 +575,7 @@ function App() {
               <button type="submit">Submit</button>
             </form>
           </article>
-          <article className="w-full text-right">
+          <article className="w-full md:text-right">
             <address>
               <span className="my-3 block text-2xl font-bold">
                 DreamsVille Interiors
