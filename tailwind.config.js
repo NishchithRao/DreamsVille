@@ -8,6 +8,7 @@ module.exports = {
     animation: {
       show: "show 0.4s ease-in-out forwards",
       showOpacity: "showOpacity 0.3s linear forwards",
+      tabFade: "tabFade 0.2s ease-out forwards",
     },
     keyframes: {
       show: {
@@ -16,6 +17,10 @@ module.exports = {
       },
       showOpacity: {
         "0%": { transform: "translate(100px,0)", opacity: 0 },
+        "100%": { transform: "translate(0px,0)", opacity: 1 },
+      },
+      tabFade: {
+        "0%": { transform: "translate(,200px)", opacity: 0 },
         "100%": { transform: "translate(0px,0)", opacity: 1 },
       },
     },

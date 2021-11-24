@@ -219,6 +219,7 @@ main {
 }
 .img-grid {
   display: block;
+  transform: translate(0, 500px);
   .main-categories,
   .sub-interior {
     @apply md:grid-cols-3 grid-cols-1 justify-center items-end w-full md:gap-x-4 gap-y-2;
@@ -249,6 +250,11 @@ main {
     &:not(.artificial) {
       @apply grid;
     }
+    .image-item {
+      @apply animate-tabFade;
+      transform: translateY(200px);
+      opacity: 0;
+    }
   }
 }
 .controls {
@@ -273,7 +279,7 @@ main {
 }
 .sub-category {
   font-family: "Alegreya", serif;
-  @apply mt-3 text-lg;
+  @apply mt-3 text-lg animate-showOpacity;
 }
 footer {
   @apply mt-20 bg-gray-900 py-20;
@@ -303,10 +309,10 @@ footer {
       }
       button {
         width: fit-content;
-        @apply z-10 relative pt-4 pb-0 uppercase px-2;
+        @apply z-10 relative pb-2 mt-3 uppercase px-2;
         &::after {
           content: "";
-          @apply absolute w-full h-3;
+          @apply absolute w-full h-10;
           left: 0;
           bottom: 0;
           z-index: -1;
@@ -330,7 +336,7 @@ footer {
 .button-link {
   animation-delay: 0.4s;
   z-index: 1;
-  @apply animate-showOpacity border-white hover:bg-white hover:text-black bg-gray-800 transition-colors ml-auto text-white py-4 mr-2 px-6 relative;
+  @apply animate-showOpacity font-normal border-white hover:bg-white hover:text-black bg-gray-800 transition-colors ml-auto text-white py-4 mr-2 px-6 relative;
   &::after {
     content: "";
     bottom: -8px;

@@ -1,13 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "./App.scss";
 import Commitment from "./svgs/Commitment";
 import Relationship from "./svgs/Relationship";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Services from "./svgs/Services";
+import Vision from "./svgs/Vision";
 
 function App() {
   const [selectedParent, setSelectedParent] = useState("");
   const [subSection, setSubSection] = useState("");
   const [tabIndex, setTabIndex] = useState(0);
+
+  const imagePaths = {
+    interior: "./images/interiors/",
+    exterior: "/images/exterior",
+    artificial: "/images/artificial",
+  };
+
+  const sectionNames = {
+    floorCarpet: "floor Carpets",
+    flooring: "flooring",
+    softFurnishing: "soft furnishing",
+  };
 
   const showSubOptions = () => {
     if (selectedParent === "interior") {
@@ -20,6 +36,17 @@ function App() {
     setSubSection("");
     setTabIndex(0);
   };
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.to(".img-grid", {
+      scrollTrigger: {
+        trigger: ".img-grid",
+        start: "top bottom",
+      },
+      y: 0,
+      outlineOffset: 200,
+    });
+  }, []);
   return (
     <div className="App">
       <div className="lines">
@@ -30,35 +57,18 @@ function App() {
       </div>
       <header>
         <span className="logo">LOGO</span>
-        {/* <div className="menu-icon">
-          <span className="close-icon"></span>
-          <span className="hamburger">
-            <span className="line line1"></span>
-            <span className="line line2"></span>
-            <span className="line line3"></span>
-          </span>
-        </div> */}
       </header>
-      <nav>
-        <ul className="nav">
-          <li>Home</li>
-          <li>About</li>
-          <li>Services</li>
-          <li>Gallery</li>
-          <li>Contact Us</li>
-        </ul>
-      </nav>
 
       <main>
         <div className="hero">
           <div className="wrapper">
             <div className="swiper-slide section section-1">
               <div className="img-overlay">
-                <img src="./images/home_bg/overlays/4.webp" alt="" />
+                <img src="/images/home_bg/overlays/4.webp" alt="" />
               </div>
               <div className="content">
                 <div className="main-img">
-                  <img src="./images/home_bg/5.jpg" alt="" />
+                  <img src="/images/home_bg/5.jpg" alt="" />
                 </div>
                 <div className="text">
                   <h3>
@@ -69,7 +79,7 @@ function App() {
                     Your one stop solution for your house interiors and
                     exteriors company
                   </p>
-                  <a href="/" className="button-link">
+                  <a href="/#products" className="button-link">
                     Browse Categoriess
                   </a>
                 </div>
@@ -108,7 +118,8 @@ function App() {
           </aside>
           <div className="services">
             <div className="service">
-              <Commitment />
+              <Relationship />
+              <span className="block mt-3">Commitment</span>
               <p>
                 We are committed to delivering inspired designs that fulfill
                 client expectations through collaboration and exceptional
@@ -116,39 +127,45 @@ function App() {
               </p>
             </div>
             <div className="service">
-              <Relationship />
+              <Vision />
+              <span className="block mt-3">Vision</span>
+              <p>
+                To provide best solution for customers who look for originality
+                and unparalleled quality, through our continuous effort in
+                innovation and creativity.
+              </p>
+            </div>
+            <div className="service">
+              <Commitment />
+              <span className="block mt-3">Customer Relationship</span>
+              <p>
+                We always believe that customers help to shape Dreamsville,Thus
+                if you ever need our help or advice, we are just a call away
+              </p>
+            </div>
+            <div className="service">
+              <Services />
+              <span className="block mt-3">Service and Quality</span>
               <p>
                 As a service provider of office interior design furniture, We
                 always provide strong after-sales services and maintain a strong
                 relationship with our clients
               </p>
             </div>
-            <div className="service">
-              <Commitment />
-              <p>
-                We always believe that customers help to shape Dreamsville,Thus
-                if you ever need our help or advice, we are just a call away
-              </p>
-            </div>
-            <div className="service">
-              <Commitment />
-              <p>
-                We always believe that customers help to shape Dreamsville,Thus
-                if you ever need our help or advice, we are just a call away
-              </p>
-            </div>
           </div>
         </section>
-        <aside>
+        <aside className="products">
           <h4>Choose from our wide range products!</h4>
           <ul className="breadcrumbs">
             {selectedParent.length > 2 && (
               <li onClick={navigateToHome}>Home</li>
             )}
             {selectedParent.length > 2 && <li>{">"}</li>}
-            <li onClick={showSubOptions}>{selectedParent}</li>
+            <li id="products" className="capitalize" onClick={showSubOptions}>
+              {selectedParent}
+            </li>
             {subSection.length > 2 && <li>{">"}</li>}
-            <li>{subSection}</li>
+            <li className="capitalize">{sectionNames[subSection]}</li>
           </ul>
         </aside>
         <div className="img-grid mt-3">
@@ -258,35 +275,28 @@ function App() {
                 </Tab>
               </TabList>
               <TabPanel className="TilesTab image-gallery">
-                <div className="image-item">
-                  <img src="./images/home_bg/1.jpg" alt="" />
-                </div>
-                <div className="image-item">
-                  <img src="./images/home_bg/1.jpg" alt="" />
-                </div>
-                <div className="image-item">
-                  <img src="./images/home_bg/1.jpg" alt="" />
-                </div>
+                {[...new Array(8).keys()].map((item) => (
+                  <div key={item + 1} className="image-item">
+                    <img
+                      src={`${imagePaths.interior}/floorCarpets/tiles/${
+                        item + 1
+                      }.jpg`}
+                      alt=""
+                    />
+                  </div>
+                ))}
               </TabPanel>
               <TabPanel className="RugsTab image-gallery hide">
-                <div className="image-item">
-                  <img src="./images/home_bg/2.jpg" alt="" />
-                </div>
-                <div className="image-item">
-                  <img src="./images/home_bg/2.jpg" alt="" />
-                </div>
-                <div className="image-item">
-                  <img src="./images/home_bg/2.jpg" alt="" />
-                </div>
-                <div className="image-item">
-                  <img src="./images/home_bg/3.jpg" alt="" />
-                </div>
-                <div className="image-item">
-                  <img src="./images/home_bg/3.jpg" alt="" />
-                </div>
-                <div className="image-item">
-                  <img src="./images/home_bg/3.jpg" alt="" />
-                </div>
+                {[...new Array(5).keys()].map((item) => (
+                  <div key={item} className="image-item">
+                    <img
+                      src={`${imagePaths.interior}/floorCarpets/rugs/${
+                        item + 1
+                      }.jpg`}
+                      alt=""
+                    />
+                  </div>
+                ))}
               </TabPanel>
               <TabPanel className="WallTab image-gallery hide">
                 <div className="image-item">
@@ -333,35 +343,28 @@ function App() {
                 </Tab>
               </TabList>
               <TabPanel className="SPCTab image-gallery">
-                <div className="image-item">
-                  <img src="./images/home_bg/1.jpg" alt="" />
-                </div>
-                <div className="image-item">
-                  <img src="./images/home_bg/1.jpg" alt="" />
-                </div>
-                <div className="image-item">
-                  <img src="./images/home_bg/1.jpg" alt="" />
-                </div>
+                {[...new Array(5).keys()].map((item) => (
+                  <div key={item} className="image-item">
+                    <img
+                      src={`${imagePaths.interior}/flooring/SPC/${
+                        item + 1
+                      }.jpg`}
+                      alt=""
+                    />
+                  </div>
+                ))}
               </TabPanel>
               <TabPanel className="WoodenTab image-gallery hide">
-                <div className="image-item">
-                  <img src="./images/home_bg/2.jpg" alt="" />
-                </div>
-                <div className="image-item">
-                  <img src="./images/home_bg/2.jpg" alt="" />
-                </div>
-                <div className="image-item">
-                  <img src="./images/home_bg/2.jpg" alt="" />
-                </div>
-                <div className="image-item">
-                  <img src="./images/home_bg/3.jpg" alt="" />
-                </div>
-                <div className="image-item">
-                  <img src="./images/home_bg/3.jpg" alt="" />
-                </div>
-                <div className="image-item">
-                  <img src="./images/home_bg/3.jpg" alt="" />
-                </div>
+                {[...new Array(4).keys()].map((item) => (
+                  <div key={item} className="image-item">
+                    <img
+                      src={`${imagePaths.interior}/flooring/WoodenFlooring/${
+                        item + 1
+                      }.jpg`}
+                      alt=""
+                    />
+                  </div>
+                ))}
               </TabPanel>
             </Tabs>
             <Tabs
@@ -395,55 +398,40 @@ function App() {
                 </Tab>
               </TabList>
               <TabPanel className="SPCTab image-gallery">
-                <div className="image-item">
-                  <img src="./images/home_bg/1.jpg" alt="" />
-                </div>
-                <div className="image-item">
-                  <img src="./images/home_bg/1.jpg" alt="" />
-                </div>
-                <div className="image-item">
-                  <img src="./images/home_bg/1.jpg" alt="" />
-                </div>
+                {[...new Array(15).keys()].map((item) => (
+                  <div className="image-item" key={item}>
+                    <img
+                      src={`${imagePaths.interior}/softFurnishing/Curtains/${
+                        item + 1
+                      }.jpg`}
+                      alt=""
+                    />
+                  </div>
+                ))}
               </TabPanel>
               <TabPanel className="WoodenTab image-gallery hide">
-                <div className="image-item">
-                  <img src="./images/home_bg/2.jpg" alt="" />
-                </div>
-                <div className="image-item">
-                  <img src="./images/home_bg/2.jpg" alt="" />
-                </div>
-                <div className="image-item">
-                  <img src="./images/home_bg/2.jpg" alt="" />
-                </div>
-                <div className="image-item">
-                  <img src="./images/home_bg/3.jpg" alt="" />
-                </div>
-                <div className="image-item">
-                  <img src="./images/home_bg/3.jpg" alt="" />
-                </div>
-                <div className="image-item">
-                  <img src="./images/home_bg/3.jpg" alt="" />
-                </div>
+                {[...new Array(11).keys()].map((item) => (
+                  <div className="image-item" key={item}>
+                    <img
+                      src={`${imagePaths.interior}/softFurnishing/Sofa/${
+                        item + 1
+                      }.jpeg`}
+                      alt=""
+                    />
+                  </div>
+                ))}
               </TabPanel>
               <TabPanel className="WoodenTab image-gallery hide">
-                <div className="image-item">
-                  <img src="./images/home_bg/1.jpg" alt="" />
-                </div>
-                <div className="image-item">
-                  <img src="./images/home_bg/2.jpg" alt="" />
-                </div>
-                <div className="image-item">
-                  <img src="./images/home_bg/2.jpg" alt="" />
-                </div>
-                <div className="image-item">
-                  <img src="./images/home_bg/3.jpg" alt="" />
-                </div>
-                <div className="image-item">
-                  <img src="./images/home_bg/1.jpg" alt="" />
-                </div>
-                <div className="image-item">
-                  <img src="./images/home_bg/3.jpg" alt="" />
-                </div>
+                {[...new Array(8).keys()].map((item) => (
+                  <div className="image-item" key={item}>
+                    <img
+                      src={`${imagePaths.interior}/softFurnishing/Upholstery/${
+                        item + 1
+                      }.jpg`}
+                      alt=""
+                    />
+                  </div>
+                ))}
               </TabPanel>
             </Tabs>
 
@@ -473,7 +461,7 @@ function App() {
                   <span
                     className={`${tabIndex === 2 ? "font-bold" : "font-thin"}`}
                   >
-                    PVC Cieling
+                    PVC Ceiling
                   </span>
                 </Tab>
                 <Tab className="Stone item">
@@ -485,48 +473,44 @@ function App() {
                 </Tab>
               </TabList>
               <TabPanel className="ACPTab image-gallery">
-                <div className="image-item">
-                  <img src="./images/home_bg/1.jpg" alt="" />
-                </div>
-                <div className="image-item">
-                  <img src="./images/home_bg/1.jpg" alt="" />
-                </div>
-                <div className="image-item">
-                  <img src="./images/home_bg/1.jpg" alt="" />
-                </div>
+                {[...new Array(0).keys()].map((item) => (
+                  <div className="image-item">
+                    <img
+                      src={`${imagePaths.exterior}/ACP/${item + 1}.jpg`}
+                      alt=""
+                    />
+                  </div>
+                ))}
               </TabPanel>
               <TabPanel className="HPLTab image-gallery">
-                <div className="image-item">
-                  <img src="./images/home_bg/3.jpg" alt="" />
-                </div>
-                <div className="image-item">
-                  <img src="./images/home_bg/1.jpg" alt="" />
-                </div>
-                <div className="image-item">
-                  <img src="./images/home_bg/3.jpg" alt="" />
-                </div>
+                {[...new Array(4).keys()].map((item) => (
+                  <div className="image-item" key={item}>
+                    <img
+                      src={`${imagePaths.exterior}/HPL/${item + 1}.jpeg`}
+                      alt=""
+                    />
+                  </div>
+                ))}
               </TabPanel>
               <TabPanel className="PVCTab image-gallery">
-                <div className="image-item">
-                  <img src="./images/home_bg/2.jpg" alt="" />
-                </div>
-                <div className="image-item">
-                  <img src="./images/home_bg/2.jpg" alt="" />
-                </div>
-                <div className="image-item">
-                  <img src="./images/home_bg/2.jpg" alt="" />
-                </div>
+                {[...new Array(6).keys()].map((item) => (
+                  <div className="image-item" key={item}>
+                    <img
+                      src={`${imagePaths.exterior}/cieling/${item + 1}.jpg`}
+                      alt=""
+                    />
+                  </div>
+                ))}
               </TabPanel>
-              <TabPanel className="StoneTab image-gallery">
-                <div className="image-item">
-                  <img src="./images/home_bg/6.jpg" alt="" />
-                </div>
-                <div className="image-item">
-                  <img src="./images/home_bg/5.jpg" alt="" />
-                </div>
-                <div className="image-item">
-                  <img src="./images/home_bg/6.jpg" alt="" />
-                </div>
+              <TabPanel className="PVCTab image-gallery">
+                {[...new Array(0).keys()].map((item) => (
+                  <div className="image-item" key={item}>
+                    <img
+                      src={`${imagePaths.exterior}/STONEVENEER/${item + 1}.jpg`}
+                      alt=""
+                    />
+                  </div>
+                ))}
               </TabPanel>
             </Tabs>
             <div
@@ -534,27 +518,14 @@ function App() {
                 selectedParent === "artificial" ? "grid" : "hidden"
               } image-gallery`}
             >
-              <div className="image-item">
-                <img src="./images/home_bg/1.jpg" alt="" />
-              </div>
-              <div className="image-item">
-                <img src="./images/home_bg/2.jpg" alt="" />
-              </div>
-              <div className="image-item">
-                <img src="./images/home_bg/3.jpg" alt="" />
-              </div>
-              <div className="image-item">
-                <img src="./images/home_bg/4.jpeg" alt="" />
-              </div>
-              <div className="image-item">
-                <img src="./images/home_bg/5.jpg" alt="" />
-              </div>
-              <div className="image-item">
-                <img src="./images/home_bg/6.jpg" alt="" />
-              </div>
-              <div className="image-item">
-                <img src="./images/home_bg/1.jpg" alt="" />
-              </div>
+              {[...new Array(11).keys()].map((item) => (
+                <div className="image-item" key={item}>
+                  <img
+                    src={`${imagePaths.artificial}/${item + 1}.jpg`}
+                    alt=""
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </div>
