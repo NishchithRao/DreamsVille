@@ -64,11 +64,11 @@ function App() {
           <div className="wrapper">
             <div className="swiper-slide section section-1">
               <div className="img-overlay">
-                <img src="/images/home_bg/overlays/4.webp" alt="" />
+                <img src="./images/home_bg/overlays/4.webp" alt="" />
               </div>
               <div className="content">
                 <div className="main-img">
-                  <img src="/images/home_bg/5.jpg" alt="" />
+                  <img src="./images/home_bg/5.jpg" alt="" />
                 </div>
                 <div className="text">
                   <h3>
@@ -221,7 +221,10 @@ function App() {
                 <div className="text">
                   <span className="sub-category">Floor Carpets</span>
                 </div>
-                <img src="./images/home_bg/6.jpg" alt="Artificial" />
+                <img
+                  src={`${imagePaths.interior}/floorCarpets/tiles/1.jpg`}
+                  alt="Artificial"
+                />
               </div>
 
               <div
@@ -231,7 +234,10 @@ function App() {
                 <div className="text">
                   <span className={`sub-category`}>Flooring</span>
                 </div>
-                <img src="./images/home_bg/4.jpeg" alt="Artificial" />
+                <img
+                  src={`${imagePaths.interior}/flooring/SPC/${1}.jpg`}
+                  alt="Artificial"
+                />
               </div>
 
               <div
@@ -241,7 +247,10 @@ function App() {
                 <div className="text">
                   <span className="sub-category"> Soft Furnishing</span>
                 </div>
-                <img src="./images/home_bg/3.jpg" alt="Artificial" />
+                <img
+                  src={`${imagePaths.interior}/softFurnishing/Sofa/${1}.jpeg`}
+                  alt="Artificial"
+                />
               </div>
             </div>
             <Tabs
