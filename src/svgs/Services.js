@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { gsap } from "gsap";
 
-const Relationship = () => {
+const Services = () => {
   useEffect(() => {
-    const path = document.querySelector(".relationship");
+    const path = document.querySelector(".serviceSVG");
     gsap.to(path, {
       duration: 20,
       strokeDasharray: 1000,
@@ -23,34 +23,36 @@ const Relationship = () => {
       >
         {" "}
         <path
-          className="relationship"
+          className="serviceSVG"
           fill="none"
-          stroke="#FFFFFF"
+          stroke="#ffffff"
           strokeWidth="0.5"
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeMiterlimit="22.9256"
-          d=" M16.091,3.058c0-0.829,0.677-1.508,1.506-1.508h41.894c0.833,0,1.51,0.679,1.51,1.508v59.657c0,0.829-0.677,1.506-1.51,1.506H44.242 "
+          d=" M4.288,1.725h66.424c1.409,0,2.563,1.155,2.563,2.564v66.424c0,1.41-1.153,2.563-2.563,2.563H4.288 c-1.409,0-2.563-1.152-2.563-2.563V4.289C1.725,2.88,2.879,1.725,4.288,1.725L4.288,1.725z M37.5,1.725v71.55 M8.965,8.694h21.226 v57.613H8.965V8.694L8.965,8.694z"
         ></path>{" "}
-        <path
+        <polygon
           fill="none"
-          stroke="#FFFFFF"
-          strokeWidth="0.5"
-          strokeMiterlimit="10"
-          d="M16.059,2.266l27.042,9.014 c0.537,0.178,0.973,0.811,0.973,1.405v60.511c0,0.595-0.436,0.936-0.973,0.757l-27.042-9.015c-0.538-0.179-0.973-0.811-0.973-1.406 V3.023C15.086,2.428,15.521,2.087,16.059,2.266L16.059,2.266z"
-        ></path>{" "}
-        <path
-          fill="none"
-          stroke="#FFFFFF"
+          stroke="#ffffff"
           strokeWidth="0.5"
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeMiterlimit="22.9256"
-          d=" M35.595,39.506c0.985,0,1.785,0.8,1.785,1.787c0,0.986-0.8,1.784-1.785,1.784c-0.988,0-1.789-0.798-1.789-1.784 C33.806,40.306,34.607,39.506,35.595,39.506L35.595,39.506z"
-        ></path>{" "}
+          points=" 44.809,8.694 66.036,8.694 66.036,24.004 44.809,24.004 44.809,8.694 "
+        ></polygon>{" "}
+        <polygon
+          fill="none"
+          stroke="#ffffff"
+          strokeWidth="0.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit="22.9256"
+          points=" 44.809,32.398 66.036,32.398 66.036,66.307 44.809,66.307 44.809,32.398 "
+        ></polygon>{" "}
       </svg>
     </div>
   );
 };
 
-export default Relationship;
+export default Services;

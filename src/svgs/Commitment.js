@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { gsap } from "gsap";
 
 const Commitment = () => {
+  useEffect(() => {
+    const path = document.querySelector(".commitment");
+    gsap.to(path, {
+      duration: 20,
+      strokeDasharray: 1000,
+      scrollTrigger: { trigger: ".services", start: "bottom bottom" },
+    });
+  }, []);
   return (
     <div>
       <svg
@@ -14,6 +23,7 @@ const Commitment = () => {
       >
         {" "}
         <polygon
+          className="commitment"
           fill="none"
           stroke="#FFFFFF"
           strokeWidth="0.5"
