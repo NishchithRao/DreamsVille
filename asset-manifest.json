@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/DreamsVille/static/css/main.87dee216.chunk.css",
-    "main.js": "/DreamsVille/static/js/main.4d34fe9a.chunk.js",
-    "main.js.map": "/DreamsVille/static/js/main.4d34fe9a.chunk.js.map",
+    "main.js": "/DreamsVille/static/js/main.b3fe8225.chunk.js",
+    "main.js.map": "/DreamsVille/static/js/main.b3fe8225.chunk.js.map",
     "runtime-main.js": "/DreamsVille/static/js/runtime-main.826c0218.js",
     "runtime-main.js.map": "/DreamsVille/static/js/runtime-main.826c0218.js.map",
     "static/js/2.9d6489ad.chunk.js": "/DreamsVille/static/js/2.9d6489ad.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.826c0218.js",
     "static/js/2.9d6489ad.chunk.js",
     "static/css/main.87dee216.chunk.css",
-    "static/js/main.4d34fe9a.chunk.js"
+    "static/js/main.b3fe8225.chunk.js"
   ]
 }
