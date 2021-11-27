@@ -7,6 +7,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Services from "./svgs/Services";
 import Vision from "./svgs/Vision";
+import L from "leaflet";
 
 function App() {
   const [selectedParent, setSelectedParent] = useState("");
@@ -41,20 +42,35 @@ function App() {
     gsap.to(".img-grid", {
       scrollTrigger: {
         trigger: ".img-grid",
-        start: "top bottom",
+        start: "top center",
       },
-      y: 0,
-      outlineOffset: 200,
+      css: {
+        opacity: 1,
+      },
     });
+    const mapItem = document.querySelector(".map");
+    const map = L.map(mapItem).setView([13.0031019, 76.1079135], 13);
+
+    L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
+      attribution:
+        '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+    }).addTo(map);
+    L.marker([13.0031019, 76.1079135]).addTo(map);
   }, []);
+  const ProductNames = {
+    tiles: [
+      "Carpet Tiles - Textures",
+      "Floor Carpet Planks",
+      "Floor Carpet Strips",
+      "Floor Carpet Tiles - Palin",
+      "Floor Carpet Tiles",
+      "Nylon - Floor carpets",
+      "Plain - Floor Carpet planks",
+      "Plain - Floor Carpet Tiles",
+    ],
+  };
   return (
     <div className="App">
-      <div className="lines">
-        <div className="line line-1"></div>
-        <div className="line line-2"></div>
-        <div className="line line-3"></div>
-        <div className="line line-4"></div>
-      </div>
       <header>
         <span className="logo">LOGO</span>
       </header>
@@ -265,14 +281,14 @@ function App() {
                   <span
                     className={`${tabIndex === 0 ? "font-bold" : "font-thin"}`}
                   >
-                    FC Tiles
+                    Tiles
                   </span>
                 </Tab>
                 <Tab className="Rugs Tiles-item item">
                   <span
                     className={`${tabIndex === 1 ? "font-bold" : "font-thin"}`}
                   >
-                    FC Rugs
+                    Rugs
                   </span>
                 </Tab>
                 <Tab className="Wall Tiles-item item">
@@ -292,6 +308,7 @@ function App() {
                       }.jpg`}
                       alt=""
                     />
+                    <h4 className="mt-3">{ProductNames["tiles"][item]}</h4>
                   </div>
                 ))}
               </TabPanel>
@@ -540,7 +557,7 @@ function App() {
         </div>
       </main>
       <footer>
-        <section className="flex md:flex-row flex-col justify-between items-center">
+        <section className="flex md:flex-row flex-col mt-3 md:mt-0 justify-between items-center">
           <article className="w-full">
             <h4>Contact Us</h4>
             <form action="">
@@ -556,13 +573,20 @@ function App() {
             </form>
           </article>
           <article className="w-full md:text-right">
+            <div className="map"></div>
             <address>
-              <span className="my-3 block text-2xl font-bold">
-                DreamsVille Interiors
-              </span>
-              <span className="my-3 block">BM Road</span>
-              <span className="my-3 block">Hassan, Karnataka - 573202</span>
+              <span>Sri Nidhi Towers, Bangalore - Mangalore Rd,</span>
+              <span>opposite Jnanakshi Convention Hall,</span>
+              <span> Hassan Rural, Karnataka 573201</span>
             </address>
+            <div className="contact">
+              <a href="tel:7829360644">
+                <span>Phone:</span> 7829360644
+              </a>
+              <a href="mailto:dreamsvilleinteriors">
+                <span>Email:</span> dreamsvilleinteriors
+              </a>
+            </div>
           </article>
         </section>
       </footer>

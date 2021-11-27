@@ -1,7 +1,7 @@
 {
   "name": "dreamsville",
-  "homepage": "https://nishchithrao.github.io/DreamsVille",
   "version": "0.1.0",
+  "homepage": "https://nishchithrao.github.io/DreamsVille",
   "private": true,
   "dependencies": {
     "@craco/craco": "^6.4.1",
@@ -9,6 +9,8 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "gsap": "^3.8.0",
+    "leaflet": "^1.7.1",
+    "masonry-layout": "^4.2.2",
     "node-sass": "^6.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
