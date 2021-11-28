@@ -1,6 +1,7 @@
 {
   "name": "dreamsville",
   "private": true,
+  "homepage": "https://nishchithrao.github.io/DreamsVille",
   "dependencies": {
     "@craco/craco": "^6.4.1",
     "@testing-library/jest-dom": "^5.15.0",

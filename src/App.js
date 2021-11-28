@@ -15,9 +15,9 @@ function App() {
   const [tabIndex, setTabIndex] = useState(0);
 
   const imagePaths = {
-    interior: "/images/interiors/",
-    exterior: "/images/exterior",
-    artificial: "/images/artificial",
+    interior: "/DreamsVille/images/interiors/",
+    exterior: "/DreamsVille/images/exterior",
+    artificial: "/DreamsVille/images/artificial",
   };
 
   const sectionNames = {
@@ -49,13 +49,13 @@ function App() {
       },
     });
     const mapItem = document.querySelector(".map");
-    const map = L.map(mapItem).setView([13.0031019, 76.1079135], 13);
+    const map = L.map(mapItem).setView([13.0031019, 76.1101022], 13);
 
     L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
       attribution:
         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
     }).addTo(map);
-    L.marker([13.0031019, 76.1079135]).addTo(map);
+    L.marker([13.0031019, 76.1101022]).addTo(map);
   }, []);
   const ProductNames = {
     tiles: [
@@ -147,11 +147,11 @@ function App() {
           <div className="wrapper">
             <div className="swiper-slide section section-1">
               <div className="img-overlay">
-                <img src="/images/home_bg/overlays/4.webp" alt="" />
+                <img src="/DreamsVille/images/home_bg/overlays/4.webp" alt="" />
               </div>
               <div className="content">
                 <div className="main-img">
-                  <img src="/images/home_bg/5.jpg" alt="" />
+                  <img src="/DreamsVille/images/home_bg/3.jpg" alt="" />
                 </div>
                 <div className="text">
                   <h3>
@@ -191,7 +191,10 @@ function App() {
               </p>
             </div>
             <div className="image">
-              <img src="/images/home_bg/4.jpeg" alt="About the Company" />
+              <img
+                src="/DreamsVille/images/home_bg/4.jpeg"
+                alt="About the Company"
+              />
             </div>
           </div>
         </section>
@@ -272,7 +275,7 @@ function App() {
                   space.
                 </p>
               </div>
-              <img src="/images/home_bg/3.jpg" alt="Interiors" />
+              <img src="/DreamsVille/images/home_bg/3.jpg" alt="Interiors" />
             </div>
 
             <div
@@ -287,7 +290,7 @@ function App() {
                   the impact it has on its site.
                 </p>
               </div>
-              <img src="/images/home_bg/2.jpg" alt="Exteriors" />
+              <img src="/DreamsVille/images/home_bg/2.jpg" alt="Exteriors" />
             </div>
 
             <div
@@ -304,7 +307,7 @@ function App() {
                   that were originally or are normally played on grass.
                 </p>
               </div>
-              <img src="/images/home_bg/1.jpg" alt="Artificial" />
+              <img src="/DreamsVille/images/home_bg/1.jpg" alt="Artificial" />
             </div>
           </div>
           <div className="sub-category sub-category-1">
