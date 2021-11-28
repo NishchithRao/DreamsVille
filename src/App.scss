@@ -231,9 +231,12 @@ main {
           rgba(0, 0, 0, 0.5),
           rgba(0, 0, 0, 0.8)
         );
-        @apply z-10 flex flex-wrap break-words justify-center text-center items-center text-white w-full h-full;
+        @apply z-10 flex flex-col gap-y-10 break-words justify-center text-center items-center text-white w-full h-full;
         span {
-          @apply text-2xl block whitespace-pre-line;
+          @apply text-2xl block whitespace-pre-line block;
+        }
+        p {
+          @apply whitespace-pre-line px-3;
         }
       }
       img {
@@ -254,6 +257,9 @@ main {
       @apply animate-tabFade my-5;
       transform: translateY(200px);
       opacity: 0;
+      h4 {
+        @apply mt-3;
+      }
     }
   }
 }
@@ -293,7 +299,8 @@ footer {
     form {
       @apply flex flex-col md:w-1/2 z-10;
       input,
-      textarea {
+      textarea,
+      select {
         background-image: linear-gradient(
           148deg,
           #0f0f0f 5%,
@@ -305,7 +312,7 @@ footer {
           #000 100%
         );
         background-size: 18.87px 11.79px;
-        @apply w-full block my-3 p-4 outline-none placeholder-white;
+        @apply w-full block relative my-3 p-4 outline-none placeholder-white;
       }
       button {
         width: fit-content;

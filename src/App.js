@@ -15,7 +15,7 @@ function App() {
   const [tabIndex, setTabIndex] = useState(0);
 
   const imagePaths = {
-    interior: "./images/interiors/",
+    interior: "/images/interiors/",
     exterior: "/images/exterior",
     artificial: "/images/artificial",
   };
@@ -68,6 +68,73 @@ function App() {
       "Plain - Floor Carpet planks",
       "Plain - Floor Carpet Tiles",
     ],
+    rugs: [
+      "Designer Floor Carpet - Feather textured",
+      "Designer Floor Carpet - Geometrical designs",
+      "Designer Floor Carpets",
+      "Floor Carpet - Rugs (Abstract Design)",
+      "Floor Carpet - Rugs (Geometrical designs)",
+    ],
+    wall: [
+      "Wall to Wall Abstract design",
+      "Wall to Wall Carpet (Blue texture)",
+      "Wall to Wall Carpet Elegant Designs",
+      "Wall to Wall designer Carpet",
+      "Wall to Wall Palin Carpets",
+      "Wall to Wall plain Carpet - Lead Grey",
+      "Wall to Wall textured Carpet",
+    ],
+    SPC: [
+      "SPC Flooring - Classic Wood Patterns",
+      "SPC Flooring - Grey Shades.jpg",
+      "SPC Flooring - Oak Pattern",
+      "SPC Flooring - Wood textures",
+      "SPC Flooring - Wood Textures",
+    ],
+    Wooden: [
+      "American Walnut",
+      "Solid Wood - Walnut Series",
+      "Solid Wood flooring",
+      "Solid Wooden Flooring - Burmese Teak",
+    ],
+    curtains: [
+      "all dark",
+      "amara-1",
+      "amara-2",
+      "Ambience-1",
+      "Ambience-2",
+      "Ambience-3",
+      "Antheia-1",
+      "Antheia-2",
+      "hawaii-1",
+      "hawaii-2",
+      "hawaii-3",
+      "Mexico-1",
+      "Mexico-2",
+      "texas-1",
+      "texas-2",
+    ],
+    PVC: [
+      "Vox - Soffit (PVC Ceiling) White Shade",
+      "Vox - Soffit (PVC Ceiling) Wood Textures",
+      "Vox - Soffit (PVC Ceiling)",
+      "Vox Soffit - Golden Oak",
+      "Vox Soffit - Grey PVC Ceiling",
+      "Vox Soffit - Wood Grains",
+    ],
+    artificial: [
+      "Artificial Garden for commercial spaces",
+      "Artificial Garden",
+      "Artificial Grass - PVC Grass",
+      "Artificial Grass",
+      "Artificial Grass",
+      "Artificial Interior wall Garden",
+      "Artificial Vertical wall Garden",
+      "Artificial wall Gardens",
+      "images (27) - 2021-11-04T185630.654",
+      "images (27) - 2021-11-04T185645.195",
+      "Unique Artificial wall Garden",
+    ],
   };
   return (
     <div className="App">
@@ -80,11 +147,11 @@ function App() {
           <div className="wrapper">
             <div className="swiper-slide section section-1">
               <div className="img-overlay">
-                <img src="./images/home_bg/overlays/4.webp" alt="" />
+                <img src="/images/home_bg/overlays/4.webp" alt="" />
               </div>
               <div className="content">
                 <div className="main-img">
-                  <img src="./images/home_bg/5.jpg" alt="" />
+                  <img src="/images/home_bg/5.jpg" alt="" />
                 </div>
                 <div className="text">
                   <h3>
@@ -124,7 +191,7 @@ function App() {
               </p>
             </div>
             <div className="image">
-              <img src="./images/home_bg/4.jpeg" alt="About the Company" />
+              <img src="/images/home_bg/4.jpeg" alt="About the Company" />
             </div>
           </div>
         </section>
@@ -174,7 +241,9 @@ function App() {
           <h4>Choose from our wide range products!</h4>
           <ul className="breadcrumbs">
             {selectedParent.length > 2 && (
-              <li onClick={navigateToHome}>Home</li>
+              <li className="cursor-pointer" onClick={navigateToHome}>
+                Home
+              </li>
             )}
             {selectedParent.length > 2 && <li>{">"}</li>}
             <li id="products" className="capitalize" onClick={showSubOptions}>
@@ -196,8 +265,14 @@ function App() {
             >
               <div className="text">
                 <span className="uppercase text-xs font-bold">Interiors</span>
+                <p>
+                  Interior design is the art and science of enhancing the
+                  interior of a building to achieve a healthier and more
+                  aesthetically pleasing environment for the people using the
+                  space.
+                </p>
               </div>
-              <img src="./images/home_bg/3.jpg" alt="Interiors" />
+              <img src="/images/home_bg/3.jpg" alt="Interiors" />
             </div>
 
             <div
@@ -206,8 +281,13 @@ function App() {
             >
               <div className="text">
                 <span className="uppercase text-xs font-bold">Exteriors</span>
+                <p>
+                  Exterior design includes your home's size and shape, how it
+                  fits into the surrounding neighbourhood and streetscape, and
+                  the impact it has on its site.
+                </p>
               </div>
-              <img src="./images/home_bg/2.jpg" alt="Exteriors" />
+              <img src="/images/home_bg/2.jpg" alt="Exteriors" />
             </div>
 
             <div
@@ -218,8 +298,13 @@ function App() {
                 <span className="uppercase text-xs font-bold">
                   Artificial and Vertical Gardening
                 </span>
+                <p>
+                  Artificial turf is a surface of synthetic fibers made to look
+                  like natural grass. It is most often used in arenas for sports
+                  that were originally or are normally played on grass.
+                </p>
               </div>
-              <img src="./images/home_bg/1.jpg" alt="Artificial" />
+              <img src="/images/home_bg/1.jpg" alt="Artificial" />
             </div>
           </div>
           <div className="sub-category sub-category-1">
@@ -236,6 +321,10 @@ function App() {
               >
                 <div className="text">
                   <span className="sub-category">Floor Carpets</span>
+                  <p>
+                    A carpet is a textile floor covering typically consisting of
+                    an upper layer of pile attached to a backing.
+                  </p>
                 </div>
                 <img
                   src={`${imagePaths.interior}/floorCarpets/tiles/1.jpg`}
@@ -249,6 +338,14 @@ function App() {
               >
                 <div className="text">
                   <span className={`sub-category`}>Flooring</span>
+                  <p>
+                    {" "}
+                    Flooring is the general term for a permanent covering of a
+                    floor, or for the work of installing such a floor covering.
+                    Floor covering is a term to generically describe any finish
+                    material applied over a floor structure to provide a walking
+                    surface.
+                  </p>
                 </div>
                 <img
                   src={`${imagePaths.interior}/flooring/SPC/${1}.jpg`}
@@ -262,6 +359,12 @@ function App() {
               >
                 <div className="text">
                   <span className="sub-category"> Soft Furnishing</span>
+                  <p>
+                    {" "}
+                    Soft furnishing means all furnishing elements that are made
+                    of soft material. These complement not only the other
+                    furnishing elements but also the architecture of a building.
+                  </p>
                 </div>
                 <img
                   src={`${imagePaths.interior}/softFurnishing/Sofa/${1}.jpeg`}
@@ -308,7 +411,7 @@ function App() {
                       }.jpg`}
                       alt=""
                     />
-                    <h4 className="mt-3">{ProductNames["tiles"][item]}</h4>
+                    <h4>{ProductNames["tiles"][item]}</h4>
                   </div>
                 ))}
               </TabPanel>
@@ -321,28 +424,24 @@ function App() {
                       }.jpg`}
                       alt=""
                     />
+                    <h4>{ProductNames["rugs"][item]}</h4>
                   </div>
                 ))}
               </TabPanel>
               <TabPanel className="WallTab image-gallery hide">
-                <div className="image-item">
-                  <img src="./images/home_bg/6.jpg" alt="" />
-                </div>
-                <div className="image-item">
-                  <img src="./images/home_bg/6.jpg" alt="" />
-                </div>
-                <div className="image-item">
-                  <img src="./images/home_bg/6.jpg" alt="" />
-                </div>
-                <div className="image-item">
-                  <img src="./images/home_bg/6.jpg" alt="" />
-                </div>
-                <div className="image-item">
-                  <img src="./images/home_bg/6.jpg" alt="" />
-                </div>
-                <div className="image-item">
-                  <img src="./images/home_bg/6.jpg" alt="" />
-                </div>
+                {[...new Array(ProductNames["wall"].length).keys()].map(
+                  (item) => (
+                    <div key={item} className="image-item">
+                      <img
+                        src={`${imagePaths.interior}/floorCarpets/wall/${
+                          item + 1
+                        }.jpg`}
+                        alt=""
+                      />
+                      <h4>{ProductNames["wall"][item]}</h4>
+                    </div>
+                  )
+                )}
               </TabPanel>
             </Tabs>
             <Tabs
@@ -377,6 +476,7 @@ function App() {
                       }.jpg`}
                       alt=""
                     />
+                    <h4>{ProductNames["SPC"][item]}</h4>
                   </div>
                 ))}
               </TabPanel>
@@ -389,6 +489,7 @@ function App() {
                       }.jpg`}
                       alt=""
                     />
+                    <h4>{ProductNames["Wooden"][item]}</h4>
                   </div>
                 ))}
               </TabPanel>
@@ -432,6 +533,7 @@ function App() {
                       }.jpg`}
                       alt=""
                     />
+                    <h4>{ProductNames["curtains"][item]}</h4>
                   </div>
                 ))}
               </TabPanel>
@@ -498,37 +600,68 @@ function App() {
                   </span>
                 </Tab>
               </TabList>
-              <TabPanel className="ACPTab image-gallery">
-                {[...new Array(0).keys()].map((item) => (
-                  <div className="image-item">
-                    <img
-                      src={`${imagePaths.exterior}/ACP/${item + 1}.jpg`}
-                      alt=""
-                    />
-                  </div>
-                ))}
+              <TabPanel className="ACPTab">
+                <p className="text-center">
+                  Aluminium Composite Panel or ACP sheet are new-age material
+                  that's used for building front elevation (facades), interiors,
+                  signage, modular kitchen and many more.
+                </p>
+                <div className="image-gallery">
+                  {[...new Array(0).keys()].map((item) => (
+                    <div className="image-item">
+                      <img
+                        src={`${imagePaths.exterior}/ACP/${item + 1}.jpg`}
+                        alt=""
+                      />
+                    </div>
+                  ))}
+                </div>
               </TabPanel>
-              <TabPanel className="HPLTab image-gallery">
-                {[...new Array(4).keys()].map((item) => (
-                  <div className="image-item" key={item}>
-                    <img
-                      src={`${imagePaths.exterior}/HPL/${item + 1}.jpeg`}
-                      alt=""
-                    />
-                  </div>
-                ))}
+              <TabPanel className="HPLTab">
+                <p className="text-center">
+                  Fundermax HPL panels are 100% weather proof and are available
+                  in various colours and textures raging from exotic wood decors
+                  to stone finishes to natural look.
+                </p>
+                <div className="image-gallery">
+                  {[...new Array(4).keys()].map((item) => (
+                    <div className="image-item" key={item}>
+                      <img
+                        src={`${imagePaths.exterior}/HPL/${item + 1}.jpeg`}
+                        alt=""
+                      />
+                    </div>
+                  ))}
+                </div>
               </TabPanel>
-              <TabPanel className="PVCTab image-gallery">
-                {[...new Array(6).keys()].map((item) => (
-                  <div className="image-item" key={item}>
-                    <img
-                      src={`${imagePaths.exterior}/cieling/${item + 1}.jpg`}
-                      alt=""
-                    />
-                  </div>
-                ))}
+              <TabPanel className="PVCTab">
+                <p className="text-center">
+                  PVC panels are often used as a cladding material, in the
+                  ceilings of residential and commercial buildings. PVC is
+                  strong, yet lightweight and since it is factory-manufactured,
+                  the finish is seamless and can be built in various designs,
+                  colours, sizes and lengths.
+                </p>
+                <div className="image-gallery">
+                  {[...new Array(6).keys()].map((item) => (
+                    <div className="image-item" key={item}>
+                      <img
+                        src={`${imagePaths.exterior}/cieling/${item + 1}.jpg`}
+                        alt=""
+                      />
+                      <h4>{ProductNames["PVC"][item]}</h4>
+                    </div>
+                  ))}
+                </div>
               </TabPanel>
-              <TabPanel className="PVCTab image-gallery">
+              <TabPanel className="StoneVeneerTab">
+                <p className="text-center">
+                  Stone veneer is a thin layer of any stone used as decorative
+                  facing material that is not meant to be load bearing. Stone
+                  cladding is a stone veneer, or simulated stone, applied to a
+                  building or other structure made of a material other than
+                  stone
+                </p>
                 {[...new Array(0).keys()].map((item) => (
                   <div className="image-item" key={item}>
                     <img
@@ -550,6 +683,7 @@ function App() {
                     src={`${imagePaths.artificial}/${item + 1}.jpg`}
                     alt=""
                   />
+                  <h4>{ProductNames["artificial"][item]}</h4>
                 </div>
               ))}
             </div>
@@ -563,8 +697,18 @@ function App() {
             <form action="">
               <input id="name" placeholder="Enter Name..." />
               <input id="email" type="email" placeholder="Enter Email..." />
+              <select id="category">
+                <option selected disabled>
+                  Please select a Category
+                </option>
+                <option value="Interior">Interior</option>
+                <option value="Exterior">Exterior</option>
+                <option value="Artificial">
+                  Artificial And Vertical Gardening
+                </option>
+              </select>
               <textarea
-                placeholder="Enter a message..."
+                placeholder="Enter the details of you query..."
                 id="message"
                 rows="3"
                 cols="3"
