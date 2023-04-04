@@ -1,13 +1,14 @@
-import { useEffect } from "react";
 import "./App.scss";
+
 import Commitment from "./svgs/Commitment";
+import ImageGrid from "./components/ImageGrid/ImageGrid";
+import L from "leaflet";
 import Relationship from "./svgs/Relationship";
-import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Services from "./svgs/Services";
 import Vision from "./svgs/Vision";
-import L from "leaflet";
-import ImageGrid from "./components/ImageGrid/ImageGrid";
+import { gsap } from "gsap";
+import { useEffect } from "react";
 
 function App() {
   useEffect(() => {
@@ -117,7 +118,9 @@ function App() {
   return (
     <div className="App">
       <header>
-        <span className="logo">LOGO</span>
+        <span className="logo">
+          <img className="w-10" src="/logo512.png" alt="Logo" />
+        </span>
       </header>
 
       <main>
@@ -140,7 +143,7 @@ function App() {
                     Your one stop solution for your house interiors and
                     exteriors company
                   </p>
-                  <a href="/#products" className="button-link">
+                  <a href="#products" className="button-link">
                     Browse Categoriess
                   </a>
                 </div>
@@ -215,7 +218,7 @@ function App() {
             </div>
           </div>
         </section>
-        <aside className="products">
+        <aside id="products" className="products">
           <h4>Choose from our wide range products!</h4>
         </aside>
         <ImageGrid />
@@ -224,10 +227,10 @@ function App() {
         <section className="flex md:flex-row flex-col mt-3 md:mt-0 justify-between items-center">
           <article className="w-full">
             <h4>Contact Us</h4>
-            <form action="">
+            <form action="mailto:nishchitrao5@gmail.com">
               <input id="name" placeholder="Enter Name..." />
               <input id="email" type="email" placeholder="Enter Email..." />
-              <select id="category">
+              <select name="category" id="category">
                 <option disabled>Please select a Category</option>
                 <option value="Interior">Interior</option>
                 <option value="Exterior">Exterior</option>
@@ -236,6 +239,7 @@ function App() {
                 </option>
               </select>
               <textarea
+                name="message"
                 placeholder="Enter the details of you query..."
                 id="message"
                 rows={3}
